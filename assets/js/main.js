@@ -24,7 +24,16 @@
 
     // ABOUT
     $("#about-body").innerHTML =
-      (SITE.about.lead ? '<p class="section-lead">' + esc(SITE.about.lead) + "</p>" : "") +
+      // キャッチフレーズは「、」の位置でだけ折り返す（言葉の途中で改行させない）
+      (SITE.about.lead
+        ? '<p class="section-lead catch">' +
+          SITE.about.lead
+            .split(/(?<=、)/)
+            .map(function (part) { return "<span>" + esc(part) + "</span>"; })
+            .join("") +
+          "</p>"
+        : "") +
+      (SITE.about.sub ? '<p class="catch-sub">' + esc(SITE.about.sub) + "</p>" : "") +
       UP.paragraphs(SITE.about.text);
 
     // EVENT / PROJECT / WORK

@@ -17,6 +17,36 @@
     return "detail.html?type=" + encodeURIComponent(type) + "&id=" + encodeURIComponent(id);
   }
 
+  /* ---------- 写真が等速で横に流れ続ける帯 ---------- */
+
+  function initPhotoMarquee(root, photos, speed) {
+    // 画面幅より短いと途切れるので、枚数が少ないときは同じ並びを繰り返して長さを確保する
+    var list = [];
+    while (list.length < 10) list = list.concat(photos);
+
+    var imgs = list
+      .map(function (src) {
+        return '<img src="' + esc(src) + '" alt="" draggable="false">';
+      })
+      .join("");
+
+    // 同じ並びを 2 つつなげ、1 つ分だけ進んだら最初に戻すことで、切れ目なく流れ続ける
+    root.innerHTML = '<div class="photo-track">' + imgs + imgs + "</div>";
+    var track = root.querySelector(".photo-track");
+
+    // 帯の長さに合わせて 1 周の時間を決める（＝写真の枚数や大きさが変わっても速さは一定）
+    function setDuration() {
+      var distance = track.scrollWidth / 2;
+      if (distance > 0) track.style.animationDuration = distance / (speed || 40) + "s";
+    }
+
+    track.querySelectorAll("img").forEach(function (img) {
+      img.addEventListener("load", setDuration);
+    });
+    window.addEventListener("resize", setDuration);
+    setDuration();
+  }
+
   /* ---------- ホーム ---------- */
 
   function initHome() {
@@ -40,11 +70,16 @@
     document.querySelectorAll("[data-category-section]").forEach(function (section) {
       var cat = SITE.categories[section.dataset.categorySection];
       if (!cat) return;
-      section.querySelector(".container").innerHTML =
+      var hasPhotos = cat.photos && cat.photos.length;
+      section.innerHTML =
+        '<div class="container">' +
         UP.sectionHead(cat.title, cat.titleJp) +
         '<div class="section-text"><p>' + esc(cat.description) + "</p></div>" +
-        '<div class="section-action"><a class="btn" href="' + esc(cat.page) + '">' +
-        esc(cat.buttonLabel) + "</a></div>";
+        "</div>" +
+        (hasPhotos ? '<div class="photo-marquee" aria-hidden="true"></div>' : "") +
+        '<div class="container"><div class="section-action"><a class="btn" href="' + esc(cat.page) + '">' +
+        esc(cat.buttonLabel) + "</a></div></div>";
+      if (hasPhotos) initPhotoMarquee(section.querySelector(".photo-marquee"), cat.photos, cat.photoSpeed);
     });
 
     // 運営・スタッフ

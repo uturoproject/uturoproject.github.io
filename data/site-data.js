@@ -68,6 +68,22 @@ window.SITE = {
       buttonLabel: "イベント一覧",
       description:
         "うつろプロジェクトが VRChat で開催している定期イベントを紹介します。ここにイベントについての説明文が入ります。",
+      // ホームの EVENT 欄で、説明文とボタンの間を横に流れ続ける写真（クリックしても何も起きません）
+      // 何枚でも OK。向き・サイズが違っても高さをそろえて表示します（横幅 800px 前後に縮小した画像がおすすめ）
+      // photos を [] にすると、写真の帯は表示されません
+      photoSpeed: 40, // 流れる速さ（1 秒あたりに進むピクセル数。大きいほど速い）
+      photos: [
+        "assets/images/event-photos/photo-01.svg",
+        "assets/images/event-photos/photo-02.svg",
+        "assets/images/event-photos/photo-03.svg",
+        "assets/images/event-photos/photo-04.svg",
+        "assets/images/event-photos/photo-05.svg",
+        "assets/images/event-photos/photo-06.svg",
+        "assets/images/event-photos/photo-07.svg",
+        "assets/images/event-photos/photo-08.svg",
+        "assets/images/event-photos/photo-09.svg",
+        "assets/images/event-photos/photo-10.svg",
+      ],
       // layout: "poster" にすると、一覧が「縦長のポスター画像だけ」の並びになります
       // （タイトルや説明文は表示されません。title は画像の読み上げ用の名前として使います）
       layout: "poster",

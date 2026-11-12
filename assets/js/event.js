@@ -14,23 +14,6 @@
   var $ = UP.$;
   var page = document.body.dataset.page; // event-home / event-join / event-members / event-member
 
-  /* ---------- イベントごとの色を反映 ---------- */
-
-  function applyTheme(theme) {
-    if (!theme) return;
-    var style = document.documentElement.style;
-    var map = { main: "--blue", dark: "--blue-dark", pale: "--blue-pale", line: "--blue-line" };
-    Object.keys(map).forEach(function (key) {
-      if (theme[key]) style.setProperty(map[key], theme[key]);
-    });
-    // 影の色もメインの色に合わせる
-    var m = /^#([0-9a-f]{2})([0-9a-f]{2})([0-9a-f]{2})$/i.exec(theme.main || "");
-    if (m) {
-      var rgb = [m[1], m[2], m[3]].map(function (h) { return parseInt(h, 16); }).join(", ");
-      style.setProperty("--shadow", "0 6px 24px rgba(" + rgb + ", 0.16)");
-    }
-  }
-
   function memberUrl(id) {
     return "member.html?id=" + encodeURIComponent(id);
   }
@@ -312,7 +295,7 @@
 
   /* ---------- 起動 ---------- */
 
-  applyTheme(EV.theme);
+  UP.applyTheme(EV.theme);
 
   var currentHref = document.body.dataset.nav || "";
 

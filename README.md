@@ -43,6 +43,17 @@ EVENT 一覧のカードを押すと、イベントごとのホームページ�
   コピーした 4 つの HTML の `event-yoidore.js` を新しい名前に書き換え、
   `data/site-data.js` の `categories.event.items` に 1 件追加
 
+## 個人のサイト（運営）
+
+ホームの STAFF で運営を押すと、`url` が書かれている人は個人のホームページへ進みます
+（現在は代表「夢見虚」＝ `yumemi-uturo/`）。中身は `data/person-yumemi-uturo.js` を編集します。
+
+- **おすすめの YouTube** … `youtube.videos` の `id` に動画 ID を書く
+- **個人イベント** … `events.items`
+- **所属** … `affiliations.items`（キャスト紹介写真と、そのイベントの公式 X の URL）
+- **ほかの運営の個人サイトを作る** … `yumemi-uturo/` フォルダと `data/person-yumemi-uturo.js` をコピーして名前を変え、
+  コピーした HTML の `person-yumemi-uturo.js` を書き換え、`data/site-data.js` のその人に `url` を追加
+
 ## 手元で確認する
 
 ```bash

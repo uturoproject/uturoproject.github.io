@@ -42,7 +42,8 @@
     var core = (SITE.members.core || [])
       .map(function (m) {
         return (
-          '<a class="member" href="member.html?id=' + encodeURIComponent(m.id) + '">' +
+          // url があれば個人のホームページへ、無ければ共通のプロフィールページへ進む
+          '<a class="member" href="' + esc(m.url || "member.html?id=" + encodeURIComponent(m.id)) + '">' +
           '<div class="member-photo"><img src="' + esc(m.image) + '" alt="' + esc(m.name) + '" loading="lazy"></div>' +
           '<p class="member-name">' + esc(m.name) + "</p>" +
           '<p class="member-role">' + esc(m.role) + "</p>" +

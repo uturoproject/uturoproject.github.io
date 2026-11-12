@@ -598,8 +598,11 @@ a.member .member-role::after {
   box-shadow: 0 0 0 3px var(--blue), var(--shadow);
 }
 
+/* 画像の読み込み中も枠がつぶれないよう、ポスターの縦横比（1414×2000）を先に確保する */
 .poster-card img {
   width: 100%;
+  aspect-ratio: 1414 / 2000;
+  object-fit: cover;
 }
 
 @media (max-width: 768px) {

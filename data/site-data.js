@@ -195,7 +195,7 @@ window.SITE = {
       },
       {
         id: "member-2",
-        name: "運営メンバー 2",
+        name: "やけちゃま",
         role: "副代表",
         image: "assets/images/avatar-placeholder.svg",
         bio: ["プロフィール文がここに入ります。"],
@@ -203,7 +203,7 @@ window.SITE = {
       },
       {
         id: "member-3",
-        name: "運営メンバー 3",
+        name: "七つの天狗 - 天乃",
         role: "運営",
         image: "assets/images/avatar-placeholder.svg",
         bio: ["プロフィール文がここに入ります。"],

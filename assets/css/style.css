@@ -881,6 +881,56 @@ button:focus-visible {
   white-space: nowrap;
 }
 
+/* ---------- ABOUT にポスターを置くときの並び ---------- */
+
+.about-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 360px) 1fr;
+  gap: 48px;
+  align-items: center;
+  max-width: 980px;
+  margin: 0 auto;
+}
+
+.about-poster {
+  display: block;
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  transition: transform 0.25s;
+}
+
+.about-poster:hover {
+  transform: translateY(-4px);
+}
+
+.about-poster img {
+  width: 100%;
+}
+
+.about-layout .section-text {
+  max-width: none;
+  margin: 0;
+  text-align: left;
+}
+
+.about-layout .info-list {
+  max-width: none;
+  margin: 28px 0 0;
+}
+
+@media (max-width: 768px) {
+  .about-layout {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+
+  .about-poster {
+    max-width: 300px;
+    margin: 0 auto;
+  }
+}
+
 /* ---------- メンバーの写真が流れるスライド ---------- */
 
 .member-carousel {

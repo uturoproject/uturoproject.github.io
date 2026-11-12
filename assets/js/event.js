@@ -136,14 +136,20 @@
       // スライド
       '<section class="hero" aria-label="お知らせスライド"><div class="slider" id="slider"></div></section>' +
 
-      // ABOUT
+      // ABOUT（ポスターがあれば左に置き、文章と開催情報を右に並べる）
       '<section class="section" id="about"><div class="container">' +
       UP.sectionHead("ABOUT", EV.name) +
+      (EV.about.poster
+        ? '<div class="about-layout">' +
+          '<a class="about-poster" href="' + esc(UP.asset(EV.about.poster)) + '" target="_blank" rel="noopener" aria-label="ポスターを大きく表示">' +
+          '<img src="' + esc(UP.asset(EV.about.poster)) + '" alt="' + esc(EV.name) + ' のポスター"></a><div>'
+        : "") +
       '<div class="section-text">' +
       (EV.about.lead ? '<p class="section-lead">' + esc(EV.about.lead) + "</p>" : "") +
       UP.paragraphs(EV.about.text) +
       "</div>" +
       (info ? '<dl class="info-list">' + info + "</dl>" : "") +
+      (EV.about.poster ? "</div></div>" : "") +
       "</div></section>" +
 
       // 参加方法

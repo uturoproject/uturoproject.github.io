@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>うつろプロジェクト</title>
+  <meta name="description" content="VRChatを拠点に活動する団体「うつろプロジェクト」の公式ホームページです。">
+  <link rel="icon" href="assets/images/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body data-page="home" data-nav="index.html">
+
+  <header class="site-header" id="site-header"></header>
+
+  <main id="main">
+
+    <!-- スライド（中身は data/site-data.js の slides） -->
+    <section class="hero" aria-label="お知らせスライド">
+      <div class="slider" id="slider"></div>
+    </section>
+
+    <!-- ABOUT -->
+    <section class="section" id="about">
+      <div class="container">
+        <div class="section-head">
+          <h2 class="section-title">ABOUT</h2>
+          <p class="section-sub">うつろプロジェクトとは</p>
+        </div>
+        <div class="section-text" id="about-body"></div>
+      </div>
+    </section>
+
+    <!-- EVENT / PROJECT / WORK（中身は data/site-data.js の categories） -->
+    <section class="section tint" id="event" data-category-section="event">
+      <div class="container"></div>
+    </section>
+
+    <section class="section" id="project" data-category-section="project">
+      <div class="container"></div>
+    </section>
+
+    <section class="section tint" id="work" data-category-section="work">
+      <div class="container"></div>
+    </section>
+
+    <!-- 運営・スタッフ -->
+    <section class="section" id="staff">
+      <div class="container">
+        <div class="section-head">
+          <h2 class="section-title">STAFF</h2>
+          <p class="section-sub">運営・スタッフ</p>
+        </div>
+        <div id="members-body"></div>
+      </div>
+    </section>
+
+    <!-- 各種リンク -->
+    <section class="section tint" id="links">
+      <div class="container">
+        <div class="section-head">
+          <h2 class="section-title">LINKS</h2>
+          <p class="section-sub">各種リンク</p>
+        </div>
+        <div class="link-grid" id="links-body"></div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer" id="site-footer"></footer>
+
+  <script src="data/site-data.js"></script>
+  <script src="assets/js/main.js"></script>
+</body>
+</html>

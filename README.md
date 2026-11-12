@@ -14,7 +14,9 @@ VRChat 団体「うつろプロジェクト」の公式サイトです。
 | `data/site-data.js` | **サイトの文章・画像・一覧の中身（更新は基本ここだけ）** |
 | `assets/images/` | 画像置き場 |
 | `assets/css/style.css` | デザイン（色は先頭の `:root` で変更） |
-| `assets/js/main.js` | 表示の仕組み |
+| `assets/js/` | 表示の仕組み（`common.js` 共通 / `main.js` メイン / `event.js` 定期イベント） |
+| `yoidore/` `succubus/` | 定期イベントそれぞれのホームページ（ホーム・参加方法・在籍一覧・メンバー紹介） |
+| `data/event-yoidore.js` `data/event-succubus.js` | **定期イベントのサイトの中身（文章・色・メンバーなど）** |
 
 ## よくある更新
 
@@ -27,6 +29,19 @@ VRChat 団体「うつろプロジェクト」の公式サイトです。
 - **リンクを変える** … `links`
 - **ヘッダーのメニューを増やす** … `nav` に追加。新しい一覧ページが必要なら `event.html` をコピーして
   `data-category` と `data-nav` を書き換え、`categories` に同じ名前の項目を追加
+
+## 定期イベントのサイト
+
+EVENT 一覧のカードを押すと、イベントごとのホームページ（`yoidore/` や `succubus/`）に進みます。
+中身は `data/event-◯◯.js` を編集します。
+
+- **メンバーを追加・変更する** … `members` に追加（写真は縦長 3:4 推奨、`assets/images/◯◯/` に置く）。
+  `comment` は在籍一覧で画像を押したときに出るひとことコメント
+- **色を変える** … `theme`
+- **参加方法を書く** … `join.steps`（手順）と `join.notes`（注意事項）
+- **定期イベントを増やす** … `yoidore/` フォルダと `data/event-yoidore.js` をコピーして名前を変え、
+  コピーした 4 つの HTML の `event-yoidore.js` を新しい名前に書き換え、
+  `data/site-data.js` の `categories.event.items` に 1 件追加
 
 ## 手元で確認する
 

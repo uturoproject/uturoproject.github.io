@@ -56,43 +56,32 @@ window.SITE = {
          summary … 一覧に出す短い説明
          body    … 詳細ページの本文（1 要素 = 1 段落）
          links   … 詳細ページに出すリンク（省略可）
+         url     … 書くと、詳細ページの代わりにそのページへ進みます（省略可）
      --------------------------------------------------------------- */
   categories: {
     event: {
       title: "EVENT",
-      titleJp: "イベント",
+      titleJp: "定期イベント",
       page: "event.html",
       buttonLabel: "イベント一覧",
       description:
-        "うつろプロジェクトが主催・参加するイベントを紹介します。ここにイベントについての説明文が入ります。",
+        "うつろプロジェクトが VRChat で開催している定期イベントを紹介します。ここにイベントについての説明文が入ります。",
+      // 定期イベントは url で、それぞれ専用のホームページ（イベント名のフォルダ）に進みます。
+      // そのサイトの中身は data/event-◯◯.js で編集します。
       items: [
         {
-          id: "sample-event-1",
-          title: "サンプルイベント 1",
-          date: "2026.12.01",
-          image: "assets/images/thumb-placeholder.svg",
+          id: "yoidore",
+          title: "リアル人妻・彼氏持ち相席居酒屋「よいどれ」",
+          image: "assets/images/yoidore/thumb.svg",
           summary: "イベントの短い説明文がここに入ります。",
-          body: [
-            "イベントの詳細な説明文がここに入ります。",
-            "開催日時・会場（ワールド）・参加方法などを記載する想定です。",
-          ],
-          links: [{ label: "告知ポストを見る", url: "#" }],
+          url: "yoidore/index.html",
         },
         {
-          id: "sample-event-2",
-          title: "サンプルイベント 2",
-          date: "2026.11.01",
-          image: "assets/images/thumb-placeholder.svg",
+          id: "succubus",
+          title: "こんなのですが残念ながらサキュバスです",
+          image: "assets/images/succubus/thumb.svg",
           summary: "イベントの短い説明文がここに入ります。",
-          body: ["イベントの詳細な説明文がここに入ります。"],
-        },
-        {
-          id: "sample-event-3",
-          title: "サンプルイベント 3",
-          date: "2026.10.01",
-          image: "assets/images/thumb-placeholder.svg",
-          summary: "イベントの短い説明文がここに入ります。",
-          body: ["イベントの詳細な説明文がここに入ります。"],
+          url: "succubus/index.html",
         },
       ],
     },

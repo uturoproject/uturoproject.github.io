@@ -112,6 +112,7 @@ p {
   font-weight: 700;
   font-size: 15px;
   letter-spacing: 0.12em;
+  white-space: nowrap;
   color: var(--ink);
   transition: color 0.2s;
 }
@@ -850,5 +851,371 @@ button:focus-visible {
   * {
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
+  }
+}
+
+/* =====================================================================
+   ここから下は、定期イベントのサイト（よいどれ / サキュバス など）用
+   ===================================================================== */
+
+/* ---------- 開催情報（ABOUT 内） ---------- */
+
+.info-list {
+  display: grid;
+  grid-template-columns: max-content 1fr;
+  max-width: 640px;
+  margin: 36px auto 0;
+  border-top: 1px solid var(--blue-line);
+}
+
+.info-list dt,
+.info-list dd {
+  margin: 0;
+  padding: 14px 16px;
+  border-bottom: 1px solid var(--blue-line);
+}
+
+.info-list dt {
+  font-weight: 700;
+  color: var(--blue);
+  white-space: nowrap;
+}
+
+/* ---------- メンバーの写真が流れるスライド ---------- */
+
+.member-carousel {
+  position: relative;
+  overflow: hidden;
+  padding: 8px 0 12px;
+}
+
+.member-track {
+  display: flex;
+  gap: 20px;
+  padding-left: 20px;
+  transition: transform 0.7s ease;
+  will-change: transform;
+}
+
+.member-slide {
+  flex: 0 0 210px;
+  color: var(--ink);
+  text-align: center;
+}
+
+.member-slide-photo {
+  aspect-ratio: 3 / 4;
+  border-radius: var(--radius);
+  overflow: hidden;
+  background: var(--blue-pale);
+  box-shadow: var(--shadow);
+}
+
+.member-slide-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s;
+}
+
+.member-slide:hover .member-slide-photo img {
+  transform: scale(1.05);
+}
+
+.member-slide-name {
+  margin: 12px 0 0;
+  font-weight: 700;
+}
+
+.member-slide:hover .member-slide-name {
+  color: var(--blue);
+}
+
+.member-carousel .slider-arrow {
+  top: calc(8px + 140px);
+}
+
+/* ---------- 在籍一覧 ---------- */
+
+.roster-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 32px 24px;
+}
+
+.roster-card {
+  display: block;
+  padding: 0;
+  border: 0;
+  background: none;
+  font: inherit;
+  color: var(--ink);
+  text-align: center;
+  cursor: pointer;
+}
+
+.roster-photo {
+  display: block;
+  aspect-ratio: 3 / 4;
+  border-radius: var(--radius);
+  overflow: hidden;
+  background: var(--blue-pale);
+  box-shadow: var(--shadow);
+  transition: transform 0.25s, box-shadow 0.25s;
+}
+
+.roster-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.roster-card:hover .roster-photo {
+  transform: translateY(-4px);
+  box-shadow: 0 0 0 3px var(--blue), var(--shadow);
+}
+
+.roster-name {
+  display: block;
+  margin-top: 12px;
+  font-weight: 700;
+  line-height: 1.5;
+}
+
+.roster-role {
+  display: block;
+  font-size: 12px;
+  color: var(--muted);
+}
+
+/* ---------- 画像を押したときの拡大表示 ---------- */
+
+.member-modal {
+  width: min(92vw, 440px);
+  max-height: 92vh;
+  padding: 0;
+  border: 0;
+  border-radius: var(--radius);
+  background: var(--white);
+  color: var(--ink);
+  overflow: visible;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+}
+
+.member-modal::backdrop {
+  background: rgba(15, 23, 42, 0.75);
+}
+
+.member-modal[open] {
+  animation: modal-in 0.25s ease;
+}
+
+@keyframes modal-in {
+  from { transform: scale(0.94); }
+  to { transform: scale(1); }
+}
+
+.modal-image {
+  width: 100%;
+  max-height: 68vh;
+  object-fit: cover;
+  border-radius: var(--radius) var(--radius) 0 0;
+  background: var(--blue-pale);
+}
+
+.modal-caption {
+  padding: 16px 24px 22px;
+  text-align: center;
+}
+
+.modal-name {
+  margin: 0 0 4px;
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--blue);
+}
+
+.modal-comment {
+  margin: 0;
+  line-height: 1.7;
+}
+
+.modal-close {
+  position: absolute;
+  top: -16px;
+  right: -16px;
+  width: 40px;
+  height: 40px;
+  border: 0;
+  border-radius: 50%;
+  background: var(--white);
+  color: var(--ink);
+  font-size: 22px;
+  line-height: 1;
+  cursor: pointer;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+.modal-close:hover {
+  background: var(--blue);
+  color: var(--white);
+}
+
+/* ---------- メンバー紹介ページ ---------- */
+
+.profile-photo.portrait {
+  aspect-ratio: 3 / 4;
+}
+
+.profile-comment {
+  margin: 0 0 20px;
+  padding: 12px 18px;
+  border-left: 4px solid var(--blue);
+  border-radius: 0 8px 8px 0;
+  background: var(--blue-pale);
+  font-weight: 500;
+}
+
+/* ---------- 参加方法ページ ---------- */
+
+.steps {
+  margin: 16px 0 0;
+  padding: 0;
+  list-style: none;
+  counter-reset: step;
+}
+
+.step {
+  position: relative;
+  padding: 0 0 36px 72px;
+  counter-increment: step;
+}
+
+.step::before {
+  content: counter(step);
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: var(--blue);
+  color: var(--white);
+  font-family: var(--font-en);
+  font-weight: 800;
+  font-size: 20px;
+  line-height: 48px;
+  text-align: center;
+}
+
+.step:not(:last-child)::after {
+  content: "";
+  position: absolute;
+  left: 23px;
+  top: 56px;
+  bottom: 8px;
+  width: 2px;
+  background: var(--blue-line);
+}
+
+.step-title {
+  margin: 0 0 6px;
+  padding-top: 6px;
+  font-size: 20px;
+  line-height: 1.6;
+}
+
+.step p:last-child {
+  margin-bottom: 0;
+}
+
+.notes {
+  margin-top: 24px;
+  padding: 24px 28px;
+  border-radius: var(--radius);
+  background: var(--blue-pale);
+}
+
+.notes-title {
+  margin: 0 0 8px;
+  font-size: 17px;
+}
+
+.notes ul {
+  margin: 0;
+  padding-left: 1.3em;
+}
+
+/* ---------- フッター（親サイトへのリンク） ---------- */
+
+.footer-parent {
+  margin: 0 0 24px;
+}
+
+.footer-parent a {
+  display: inline-block;
+  padding: 8px 22px;
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  border-radius: 999px;
+  color: var(--white);
+  font-size: 13px;
+}
+
+.footer-parent a:hover {
+  background: var(--white);
+  color: var(--blue-dark);
+}
+
+@media (max-width: 768px) {
+  .member-track {
+    gap: 14px;
+    padding-left: 14px;
+  }
+
+  .member-slide {
+    flex-basis: 150px;
+  }
+
+  .member-carousel .slider-arrow {
+    top: calc(8px + 100px);
+  }
+
+  .roster-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px 14px;
+  }
+
+  .info-list {
+    grid-template-columns: 1fr;
+  }
+
+  .info-list dt {
+    padding-bottom: 0;
+    border-bottom: 0;
+  }
+
+  .info-list dd {
+    padding-top: 2px;
+  }
+
+  .step {
+    padding-left: 60px;
+  }
+
+  .step::before {
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    font-size: 17px;
+  }
+
+  .step:not(:last-child)::after {
+    left: 19px;
+    top: 48px;
+  }
+
+  .modal-close {
+    top: 8px;
+    right: 8px;
   }
 }

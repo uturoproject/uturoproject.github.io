@@ -66,21 +66,22 @@ window.SITE = {
       buttonLabel: "イベント一覧",
       description:
         "うつろプロジェクトが VRChat で開催している定期イベントを紹介します。ここにイベントについての説明文が入ります。",
+      // layout: "poster" にすると、一覧が「縦長のポスター画像だけ」の並びになります
+      // （タイトルや説明文は表示されません。title は画像の読み上げ用の名前として使います）
+      layout: "poster",
       // 定期イベントは url で、それぞれ専用のホームページ（イベント名のフォルダ）に進みます。
       // そのサイトの中身は data/event-◯◯.js で編集します。
       items: [
         {
           id: "yoidore",
           title: "リアル人妻・彼氏持ち相席居酒屋「よいどれ」",
-          image: "assets/images/yoidore/thumb.svg",
-          summary: "イベントの短い説明文がここに入ります。",
+          image: "assets/images/yoidore/poster.webp",
           url: "yoidore/index.html",
         },
         {
           id: "succubus",
           title: "こんなのですが残念ながらサキュバスです",
-          image: "assets/images/succubus/thumb.svg",
-          summary: "イベントの短い説明文がここに入ります。",
+          image: "assets/images/succubus/poster.jpg",
           url: "succubus/index.html",
         },
       ],

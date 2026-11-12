@@ -84,6 +84,13 @@
       .map(function (item) {
         // url があるものはそのページへ、無いものは共通の詳細ページへ進む
         var href = item.url || detailUrl(type, item.id);
+        // ポスターだけを並べる一覧（文字は出さない）
+        if (cat.layout === "poster") {
+          return (
+            '<a class="poster-card" href="' + esc(href) + '"' + UP.linkAttrs(href) + ">" +
+            '<img src="' + esc(item.image) + '" alt="' + esc(item.title) + '" loading="lazy"></a>'
+          );
+        }
         return (
           '<a class="card" href="' + esc(href) + '"' + UP.linkAttrs(href) + ">" +
           '<div class="card-thumb"><img src="' + esc(item.image) + '" alt="" loading="lazy"></div>' +
@@ -102,7 +109,7 @@
       "<p>" + esc(cat.description) + "</p>" +
       "</div></div>" +
       '<div class="page-body"><div class="container">' +
-      (cards ? '<div class="card-grid">' + cards + "</div>" : '<p class="empty">ただいま準備中です。</p>') +
+      (cards ? '<div class="' + (cat.layout === "poster" ? "poster-grid" : "card-grid") + '">' + cards + "</div>" : '<p class="empty">ただいま準備中です。</p>') +
       "</div></div>";
   }
 

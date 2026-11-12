@@ -575,6 +575,43 @@ a.member .member-role::after {
   color: var(--muted);
 }
 
+/* ---------- 一覧（ポスターだけを並べる） ---------- */
+
+.poster-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 40px;
+}
+
+.poster-card {
+  flex: 0 1 360px;
+  border-radius: var(--radius);
+  overflow: hidden;
+  background: var(--blue-pale);
+  box-shadow: var(--shadow);
+  transition: transform 0.25s, box-shadow 0.25s;
+}
+
+.poster-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 0 0 3px var(--blue), var(--shadow);
+}
+
+.poster-card img {
+  width: 100%;
+}
+
+@media (max-width: 768px) {
+  .poster-grid {
+    gap: 24px;
+  }
+
+  .poster-card {
+    flex-basis: 300px;
+  }
+}
+
 .empty {
   padding: 48px 0;
   text-align: center;

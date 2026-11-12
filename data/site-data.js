@@ -67,7 +67,7 @@ window.SITE = {
       page: "event.html",
       buttonLabel: "イベント一覧",
       description:
-        "うつろプロジェクトが VRChat で開催している定期イベントを紹介します。ここにイベントについての説明文が入ります。",
+        "うつろプロジェクトが VRChat で開催している定期イベントを紹介します。",
       // ホームの EVENT 欄で、説明文とボタンの間を横に流れ続ける写真（クリックしても何も起きません）
       // 何枚でも OK。向き・サイズが違っても高さをそろえて表示します（横幅 800px 前後に縮小した画像がおすすめ）
       // photos を [] にすると、写真の帯は表示されません
@@ -112,6 +112,20 @@ window.SITE = {
       buttonLabel: "プロジェクト一覧",
       description:
         "うつろプロジェクトが進めている企画を紹介します。ここにプロジェクトについての説明文が入ります。",
+      // ホームの PROJECT 欄で、説明文とボタンの間を横に流れ続ける写真（EVENT と同じ仕組み）
+      photoSpeed: 40, // 流れる速さ（1 秒あたりに進むピクセル数。大きいほど速い）
+      photos: [
+        "assets/images/project-photos/photo-01.svg",
+        "assets/images/project-photos/photo-02.svg",
+        "assets/images/project-photos/photo-03.svg",
+        "assets/images/project-photos/photo-04.svg",
+        "assets/images/project-photos/photo-05.svg",
+        "assets/images/project-photos/photo-06.svg",
+        "assets/images/project-photos/photo-07.svg",
+        "assets/images/project-photos/photo-08.svg",
+        "assets/images/project-photos/photo-09.svg",
+        "assets/images/project-photos/photo-10.svg",
+      ],
       items: [
         {
           id: "sample-project-1",

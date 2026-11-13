@@ -224,7 +224,8 @@ window.SITE = {
   links: [
     { label: "X (Twitter)", note: "最新情報はこちら", url: "https://x.com/uturoproject" },
     { label: "VRChat Group", note: "グループに参加する", url: "https://vrc.group/UTURO.7474" },
-    { label: "Discord", note: "コミュニティ", url: "#" },
-    { label: "YouTube", note: "動画・配信", url: "#" },
+    // URL が決まったら、行頭の // を消して url を書くと表示されます
+    // { label: "Discord", note: "コミュニティ", url: "" },
+    // { label: "YouTube", note: "動画・配信", url: "" },
   ],
 };

@@ -46,7 +46,7 @@ window.PERSON_SITE = {
      --------------------------------------------------------------- */
   youtube: {
     description: "まず見てほしいおすすめの動画です。（仮の文章）",
-    channelUrl: "",
+    channelUrl: "https://www.youtube.com/@yumemiuturo",
     videos: [
       { id: "", title: "おすすめ動画 1 のタイトル" },
       { id: "", title: "おすすめ動画 2 のタイトル" },
@@ -73,7 +73,7 @@ window.PERSON_SITE = {
         schedule: "毎週◯曜日 00:00〜（仮）",
         image: "assets/images/thumb-placeholder.svg",
         text: ["ここにイベントの説明文が入ります。（仮の文章）"],
-        links: [{ label: "告知ポストを見る", url: "#" }],
+        links: [], // 例: [{ label: "告知ポストを見る", url: "https://..." }]
       },
       {
         title: "個人イベント 2",
@@ -104,7 +104,7 @@ window.PERSON_SITE = {
      各種リンク（url は後で本物に差し替えてください）
      --------------------------------------------------------------- */
   links: [
-    { label: "YouTube", note: "配信・動画", url: "#" },
+    { label: "YouTube", note: "配信・動画", url: "https://www.youtube.com/@yumemiuturo" },
     { label: "X (Twitter)", note: "最新情報はこちら", url: "https://x.com/yumemiuturo" },
   ],
 };

@@ -91,7 +91,7 @@ window.EVENT_SITE = {
       image: "assets/images/member-placeholder.svg",
       comment: "ここにひとことコメントが入ります。",
       bio: ["ここにメンバーの紹介文が入ります。"],
-      links: [{ label: "X (Twitter)", url: "#" }],
+      links: [], // 例: [{ label: "X (Twitter)", url: "https://x.com/..." }]
     },
     {
       id: "member-2",
@@ -100,7 +100,7 @@ window.EVENT_SITE = {
       image: "assets/images/member-placeholder.svg",
       comment: "ここにひとことコメントが入ります。",
       bio: ["ここにメンバーの紹介文が入ります。"],
-      links: [{ label: "X (Twitter)", url: "#" }],
+      links: [], // 例: [{ label: "X (Twitter)", url: "https://x.com/..." }]
     },
     {
       id: "member-3",
@@ -109,7 +109,7 @@ window.EVENT_SITE = {
       image: "assets/images/member-placeholder.svg",
       comment: "ここにひとことコメントが入ります。",
       bio: ["ここにメンバーの紹介文が入ります。"],
-      links: [{ label: "X (Twitter)", url: "#" }],
+      links: [], // 例: [{ label: "X (Twitter)", url: "https://x.com/..." }]
     },
     {
       id: "member-4",
@@ -118,7 +118,7 @@ window.EVENT_SITE = {
       image: "assets/images/member-placeholder.svg",
       comment: "ここにひとことコメントが入ります。",
       bio: ["ここにメンバーの紹介文が入ります。"],
-      links: [{ label: "X (Twitter)", url: "#" }],
+      links: [], // 例: [{ label: "X (Twitter)", url: "https://x.com/..." }]
     },
     {
       id: "member-5",
@@ -127,7 +127,7 @@ window.EVENT_SITE = {
       image: "assets/images/member-placeholder.svg",
       comment: "ここにひとことコメントが入ります。",
       bio: ["ここにメンバーの紹介文が入ります。"],
-      links: [{ label: "X (Twitter)", url: "#" }],
+      links: [], // 例: [{ label: "X (Twitter)", url: "https://x.com/..." }]
     },
     {
       id: "member-6",
@@ -136,7 +136,7 @@ window.EVENT_SITE = {
       image: "assets/images/member-placeholder.svg",
       comment: "ここにひとことコメントが入ります。",
       bio: ["ここにメンバーの紹介文が入ります。"],
-      links: [{ label: "X (Twitter)", url: "#" }],
+      links: [], // 例: [{ label: "X (Twitter)", url: "https://x.com/..." }]
     },
   ],
 

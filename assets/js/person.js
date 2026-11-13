@@ -71,8 +71,15 @@
       '<div class="section-action"><a class="btn" href="event.html">' + esc(P.events.buttonLabel || "イベント一覧") + "</a></div>" +
       "</div></section>" +
 
+      // 所属
+      '<section class="section" id="affiliation"><div class="container">' +
+      UP.sectionHead("CAST", "所属") +
+      '<div class="section-text"><p>' + esc(P.affiliations.homeDescription || P.affiliations.description) + "</p></div>" +
+      '<div class="section-action"><a class="btn" href="affiliation.html">' + esc(P.affiliations.buttonLabel || "所属一覧") + "</a></div>" +
+      "</div></section>" +
+
       // 各種リンク
-      '<section class="section" id="links"><div class="container">' +
+      '<section class="section tint" id="links"><div class="container">' +
       UP.sectionHead("LINKS", "各種リンク") +
       '<div class="link-grid">' + UP.linkCards(P.links) + "</div>" +
       "</div></section>";

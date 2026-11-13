@@ -89,14 +89,16 @@ window.PERSON_SITE = {
      所属（今キャストとして所属している VRChat のイベント）
        name  … イベント名
        image … キャスト紹介写真（縦長 3:4 推奨）
-       xUrl  … そのイベントの公式 X の URL（画像を押したときのボタンの行き先）
+       xUrl  … そのイベントの公式 X の URL（画像を押したときのボタンの行き先）。空（""）の間はボタンが出ません
      --------------------------------------------------------------- */
   affiliations: {
-    description: "現在キャストとして所属している VRChat のイベントです。画像を押すと大きく表示されます。",
+    homeDescription: "現在キャストとして所属している VRChat のイベントを紹介します。", // ホームの所属欄に出す説明文
+    buttonLabel: "所属一覧", // ホームの所属欄のボタンの文字
+    description: "現在キャストとして所属している VRChat のイベントです。画像を押すと大きく表示されます。", // 所属ページの説明文
     items: [
-      { name: "所属イベント 1", image: "assets/images/member-placeholder.svg", xUrl: "#" },
-      { name: "所属イベント 2", image: "assets/images/member-placeholder.svg", xUrl: "#" },
-      { name: "所属イベント 3", image: "assets/images/member-placeholder.svg", xUrl: "#" },
+      { name: "所属イベント 1", image: "assets/images/member-placeholder.svg", xUrl: "" },
+      { name: "所属イベント 2", image: "assets/images/member-placeholder.svg", xUrl: "" },
+      { name: "所属イベント 3", image: "assets/images/member-placeholder.svg", xUrl: "" },
     ],
   },
 

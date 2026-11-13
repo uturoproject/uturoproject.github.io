@@ -191,7 +191,7 @@ window.SITE = {
         // （中身は data/person-yumemi-uturo.js で編集）
         url: "yumemi-uturo/index.html",
         bio: ["プロフィール文がここに入ります。", "担当していることや自己紹介などを記載する想定です。"],
-        links: [{ label: "X (Twitter)", url: "#" }],
+        links: [{ label: "X (Twitter)", url: "https://x.com/yumemiuturo" }],
       },
       {
         id: "member-2",
@@ -222,8 +222,8 @@ window.SITE = {
      各種リンク（url は後で本物に差し替えてください）
      --------------------------------------------------------------- */
   links: [
-    { label: "X (Twitter)", note: "最新情報はこちら", url: "#" },
-    { label: "VRChat Group", note: "グループに参加する", url: "#" },
+    { label: "X (Twitter)", note: "最新情報はこちら", url: "https://x.com/uturoproject" },
+    { label: "VRChat Group", note: "グループに参加する", url: "https://vrc.group/UTURO.7474" },
     { label: "Discord", note: "コミュニティ", url: "#" },
     { label: "YouTube", note: "動画・配信", url: "#" },
   ],

@@ -331,7 +331,7 @@ window.EVENT_SITE = {
      各種リンク（url は後で本物に差し替えてください）
      --------------------------------------------------------------- */
   links: [
-    { label: "X (Twitter)", note: "最新情報はこちら", url: "#" },
-    { label: "VRChat Group", note: "グループに参加する", url: "#" },
+    { label: "X (Twitter)", note: "最新情報はこちら", url: "https://x.com/yoidore_vrc" },
+    { label: "VRChat Group", note: "グループに参加する", url: "https://vrc.group/YIDR.1006" },
   ],
 };

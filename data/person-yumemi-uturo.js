@@ -105,6 +105,6 @@ window.PERSON_SITE = {
      --------------------------------------------------------------- */
   links: [
     { label: "YouTube", note: "配信・動画", url: "#" },
-    { label: "X (Twitter)", note: "最新情報はこちら", url: "#" },
+    { label: "X (Twitter)", note: "最新情報はこちら", url: "https://x.com/yumemiuturo" },
   ],
 };

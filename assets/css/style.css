@@ -1585,7 +1585,7 @@ button:focus-visible {
 
 .gallery {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  grid-template-columns: repeat(2, 1fr); /* 2 列で並べる */
   gap: 12px;
 }
 

@@ -76,10 +76,18 @@ window.PERSON_SITE = {
       {
         id: "odoritai",
         title: "夢見うつろは踊りたい 〜パーティクルライブお試し版〜",
-        date: "", // ★ 開催日（後で追加）
+        date: "2026.11.07",
         image: "assets/images/yumemi-uturo/events/odoritai/thumb.webp",
-        text: ["ここにイベントの説明や感想が入ります。（仮の文章）"],
-        photos: [], // ★ イベント時の写真（後で追加）
+        text: [
+          "11/7（土）に開催した、初のパーティクルライブイベント。",
+          "参加者の皆様のおかげで、今後の改善点がわかった、いい時間でした！",
+        ],
+        photos: [
+          "assets/images/yumemi-uturo/events/odoritai/photo-01.webp",
+          "assets/images/yumemi-uturo/events/odoritai/photo-02.webp",
+          "assets/images/yumemi-uturo/events/odoritai/photo-03.webp",
+          "assets/images/yumemi-uturo/events/odoritai/photo-04.webp",
+        ],
         links: [], // 例: [{ label: "告知ポストを見る", url: "https://..." }]
       },
     ],

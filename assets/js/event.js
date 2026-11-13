@@ -37,7 +37,7 @@
           var hidden = c > 0 ? ' aria-hidden="true" tabindex="-1"' : "";
           return (
             '<a class="member-slide" href="' + memberUrl(m.id) + '"' + hidden + ">" +
-            '<div class="member-slide-photo"><img src="' + esc(UP.asset(m.image)) + '" alt="' + esc(m.name) + '"></div>' +
+            '<div class="member-slide-photo"><img src="' + esc(UP.asset(m.thumb || m.image)) + '" alt="' + esc(m.name) + '"></div>' +
             '<p class="member-slide-name">' + esc(m.name) + "</p>" +
             "</a>"
           );
@@ -218,7 +218,7 @@
       .map(function (m, i) {
         return (
           '<button class="roster-card" type="button" data-index="' + i + '">' +
-          '<span class="roster-photo"><img src="' + esc(UP.asset(m.image)) + '" alt="" loading="lazy"></span>' +
+          '<span class="roster-photo"><img src="' + esc(UP.asset(m.thumb || m.image)) + '" alt="" loading="lazy"></span>' +
           '<span class="roster-name">' + esc(m.name) + "</span>" +
           (m.role ? '<span class="roster-role">' + esc(m.role) + "</span>" : "") +
           "</button>"

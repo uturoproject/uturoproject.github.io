@@ -12,7 +12,7 @@
   var PARENT = window.SITE; // うつろプロジェクト本体の情報
   var esc = UP.esc;
   var $ = UP.$;
-  var page = document.body.dataset.page; // person-home / person-event / person-affiliation
+  var page = document.body.dataset.page; // person-home / person-event / person-event-detail / person-affiliation
   var fullName = P.name + (P.nameEn ? "（" + P.nameEn + "）" : "");
 
   /* ---------- ホーム ---------- */
@@ -67,7 +67,7 @@
       // EVENT
       '<section class="section tint" id="event"><div class="container">' +
       UP.sectionHead("EVENT", "個人イベント") +
-      '<div class="section-text"><p>' + esc(P.events.description) + "</p></div>" +
+      '<div class="section-text"><p>' + esc(P.events.homeDescription || P.events.description) + "</p></div>" +
       '<div class="section-action"><a class="btn" href="event.html">' + esc(P.events.buttonLabel || "イベント一覧") + "</a></div>" +
       "</div></section>" +
 
@@ -85,23 +85,24 @@
       "</div></section>";
   }
 
-  /* ---------- EVENT ページ ---------- */
+  /* ---------- EVENT ページ（過去のイベントのアーカイブ一覧） ---------- */
+
+  function eventUrl(id) {
+    return "event-detail.html?id=" + encodeURIComponent(id);
+  }
 
   function initEvent() {
     document.title = "EVENT | " + fullName;
 
-    var items = (P.events.items || [])
+    var cards = (P.events.items || [])
       .map(function (ev) {
-        var links = UP.linkButtons(ev.links);
         return (
-          '<article class="pevent">' +
-          '<div class="pevent-image"><img src="' + esc(UP.asset(ev.image)) + '" alt="" loading="lazy"></div>' +
-          '<div class="pevent-body">' +
-          (ev.schedule ? '<p class="pevent-schedule">' + esc(ev.schedule) + "</p>" : "") +
-          '<h2 class="pevent-title">' + esc(ev.title) + "</h2>" +
-          UP.paragraphs(ev.text) +
-          (links ? '<div class="detail-links">' + links + "</div>" : "") +
-          "</div></article>"
+          '<a class="card" href="' + esc(eventUrl(ev.id)) + '">' +
+          '<div class="card-thumb"><img src="' + esc(UP.asset(ev.image)) + '" alt="" loading="lazy"></div>' +
+          '<div class="card-body">' +
+          (ev.date ? '<p class="card-date">' + esc(ev.date) + "</p>" : "") +
+          '<h2 class="card-title">' + esc(ev.title) + "</h2>" +
+          "</div></a>"
         );
       })
       .join("");
@@ -112,8 +113,70 @@
       "<p>" + esc(P.events.description) + "</p>" +
       "</div></div>" +
       '<div class="page-body"><div class="container">' +
-      (items ? '<div class="pevent-list">' + items + "</div>" : '<p class="empty">ただいま準備中です。</p>') +
+      (cards ? '<div class="card-grid">' + cards + "</div>" : '<p class="empty">ただいま準備中です。</p>') +
       "</div></div>";
+  }
+
+  /* ---------- イベント詳細ページ（写真と説明・感想） ---------- */
+
+  function initEventDetail() {
+    var main = $("#main");
+    var ev = (P.events.items || []).find(function (e) {
+      return e.id === UP.param("id");
+    });
+
+    if (!ev) {
+      main.innerHTML = UP.notFound("イベントが見つかりませんでした。", "event.html", "イベント一覧へ戻る");
+      return;
+    }
+
+    document.title = ev.title + " | " + fullName;
+
+    var links = UP.linkButtons(ev.links);
+    var photos = ev.photos || [];
+    var gallery = photos
+      .map(function (src, i) {
+        return (
+          '<button class="gallery-item" type="button" data-index="' + i + '" aria-label="写真 ' + (i + 1) + ' を大きく表示">' +
+          '<img src="' + esc(UP.asset(src)) + '" alt="" loading="lazy"></button>'
+        );
+      })
+      .join("");
+
+    main.innerHTML =
+      '<article class="page-body"><div class="container narrow">' +
+      '<nav class="breadcrumb" aria-label="パンくずリスト">' +
+      '<a href="index.html">HOME</a>' +
+      '<span><a href="event.html">EVENT</a></span>' +
+      "<span>" + esc(ev.title) + "</span></nav>" +
+      (ev.date ? '<p class="detail-date">' + esc(ev.date) + "</p>" : "") +
+      '<h1 class="detail-title">' + esc(ev.title) + "</h1>" +
+      (ev.image ? '<div class="detail-image"><img src="' + esc(UP.asset(ev.image)) + '" alt="' + esc(ev.title) + '"></div>' : "") +
+      '<div class="detail-text">' + UP.paragraphs(ev.text) + "</div>" +
+      (gallery
+        ? '<h2 class="gallery-title">PHOTO</h2><div class="gallery">' + gallery + "</div>"
+        : "") +
+      (links ? '<div class="detail-links">' + links + "</div>" : "") +
+      '<div class="detail-back"><a class="btn back outline" href="event.html">イベント一覧へ戻る</a></div>' +
+      "</div></article>" +
+      // 写真を押したときに画面中央に出る拡大表示
+      '<dialog class="photo-modal" id="photo-modal" aria-label="写真の拡大表示">' +
+      '<button class="modal-close" type="button" aria-label="閉じる">×</button>' +
+      '<img id="photo-modal-image" src="" alt="">' +
+      "</dialog>";
+
+    var modal = $("#photo-modal");
+    document.querySelectorAll(".gallery-item").forEach(function (btn) {
+      btn.addEventListener("click", function () {
+        $("#photo-modal-image").src = UP.asset(photos[Number(btn.dataset.index)]);
+        modal.showModal();
+      });
+    });
+    modal.querySelector(".modal-close").addEventListener("click", function () { modal.close(); });
+    // 写真の外側（暗い部分）を押しても閉じる
+    modal.addEventListener("click", function (e) {
+      if (e.target === modal) modal.close();
+    });
   }
 
   /* ---------- 所属ページ ---------- */
@@ -186,6 +249,7 @@
 
   if (page === "person-home") initHome();
   else if (page === "person-event") initEvent();
+  else if (page === "person-event-detail") initEventDetail();
   else if (page === "person-affiliation") initAffiliation();
 
   UP.renderHeader({

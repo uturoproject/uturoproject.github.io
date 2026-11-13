@@ -55,32 +55,32 @@ window.PERSON_SITE = {
   },
 
   /* ---------------------------------------------------------------
-     EVENT（行なっている個人イベント）
-       description … ホームと EVENT ページの冒頭に出す説明文
-       items       … EVENT ページに並ぶイベント
-         title    … イベント名
-         schedule … 開催日時など（省略可）
-         image    … 画像（横長 16:9 推奨）
-         text     … 説明文（1 要素 = 1 段落）
-         links    … ボタンにするリンク（省略可）
+     EVENT（過去に行なった個人イベントのアーカイブ）
+       homeDescription … ホームの EVENT 欄に出す説明文
+       description     … EVENT ページの冒頭に出す説明文
+       items           … EVENT ページに並ぶイベント（上に書いたものが先頭）。押すと詳細ページへ進みます
+         id     … URL に使う名前（半角英数字とハイフン。重複不可）
+         title  … イベント名
+         date   … 開催日など（省略可。例 "2026.10.31"）
+         image  … サムネイル画像（横長 16:9 推奨）
+         text   … 詳細ページの説明・感想（1 要素 = 1 段落）
+         photos … 詳細ページに並べるイベント時の写真（何枚でも OK。押すと大きく表示）
+                  例: ["assets/images/yumemi-uturo/events/odoritai/photo-01.webp", ...]
+         links  … 詳細ページに出すボタン（省略可）
      --------------------------------------------------------------- */
   events: {
-    description: "夢見虚が個人で行なっているイベントを紹介します。ここに説明文が入ります。（仮の文章）",
+    homeDescription: "夢見虚がこれまでに行なった個人イベントを、写真や感想とともに振り返ります。",
+    description: "これまでに行なった個人イベントのアーカイブです。押すと、当日の写真や感想が見られます。",
     buttonLabel: "イベント一覧",
     items: [
       {
-        title: "個人イベント 1",
-        schedule: "毎週◯曜日 00:00〜（仮）",
-        image: "assets/images/thumb-placeholder.svg",
-        text: ["ここにイベントの説明文が入ります。（仮の文章）"],
+        id: "odoritai",
+        title: "夢見うつろは踊りたい 〜パーティクルライブお試し版〜",
+        date: "", // ★ 開催日（後で追加）
+        image: "assets/images/yumemi-uturo/events/odoritai/thumb.webp",
+        text: ["ここにイベントの説明や感想が入ります。（仮の文章）"],
+        photos: [], // ★ イベント時の写真（後で追加）
         links: [], // 例: [{ label: "告知ポストを見る", url: "https://..." }]
-      },
-      {
-        title: "個人イベント 2",
-        schedule: "不定期開催（仮）",
-        image: "assets/images/thumb-placeholder.svg",
-        text: ["ここにイベントの説明文が入ります。（仮の文章）"],
-        links: [],
       },
     ],
   },

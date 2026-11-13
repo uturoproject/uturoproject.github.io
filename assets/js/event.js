@@ -302,6 +302,8 @@
   /* ---------- 起動 ---------- */
 
   UP.applyTheme(EV.theme);
+  // メンバー写真の枠の縦横比（data の photoRatio。無ければ 3:4）
+  if (EV.photoRatio) document.documentElement.style.setProperty("--photo-ratio", EV.photoRatio);
 
   var currentHref = document.body.dataset.nav || "";
 

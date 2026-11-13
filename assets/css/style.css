@@ -1063,7 +1063,7 @@ button:focus-visible {
 }
 
 .member-slide-photo {
-  aspect-ratio: 3 / 4;
+  aspect-ratio: var(--photo-ratio, 3 / 4);
   border-radius: var(--radius);
   overflow: hidden;
   background: var(--blue-pale);
@@ -1115,7 +1115,7 @@ button:focus-visible {
 
 .roster-photo {
   display: block;
-  aspect-ratio: 3 / 4;
+  aspect-ratio: var(--photo-ratio, 3 / 4);
   border-radius: var(--radius);
   overflow: hidden;
   background: var(--blue-pale);
@@ -1175,14 +1175,17 @@ button:focus-visible {
 }
 
 .modal-image {
+  display: block;
   width: 100%;
-  max-height: 68vh;
-  object-fit: cover;
+  max-height: 58vh;
+  object-fit: contain; /* 写真を切らずに全体を見せる（左右の空きは暗い色） */
   border-radius: var(--radius) var(--radius) 0 0;
-  background: var(--blue-pale);
+  background: #140e16;
 }
 
 .modal-caption {
+  max-height: 32vh; /* コメントが長いときは、この中でスクロール */
+  overflow-y: auto;
   padding: 16px 24px 22px;
   text-align: center;
 }
@@ -1195,6 +1198,7 @@ button:focus-visible {
 }
 
 .modal-comment {
+  white-space: pre-line; /* コメント内の改行をそのまま表示 */
   margin: 0;
   line-height: 1.7;
 }
@@ -1223,10 +1227,11 @@ button:focus-visible {
 /* ---------- メンバー紹介ページ ---------- */
 
 .profile-photo.portrait {
-  aspect-ratio: 3 / 4;
+  aspect-ratio: var(--photo-ratio, 3 / 4);
 }
 
 .profile-comment {
+  white-space: pre-line; /* コメント内の改行をそのまま表示 */
   margin: 0 0 20px;
   padding: 12px 18px;
   border-left: 4px solid var(--blue);

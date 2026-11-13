@@ -48,9 +48,9 @@ window.PERSON_SITE = {
     description: "まず見てほしいおすすめの動画です。（仮の文章）",
     channelUrl: "https://www.youtube.com/@yumemiuturo",
     videos: [
-      { id: "", title: "おすすめ動画 1 のタイトル" },
-      { id: "", title: "おすすめ動画 2 のタイトル" },
-      { id: "", title: "おすすめ動画 3 のタイトル" },
+      { id: "WNhWUH0Cv0w", title: "【Vtuber】マルチクリエイターを夢見る現役大学生Vtuberをお探しですか？【夢見虚】" },
+      { id: "OgxmMO7DlrQ", title: "【VRChat】VRCRaycastを使ってスカートの貫通を防ぐ方法【Unity】" },
+      { id: "ckTlT8s6bow", title: "【VRChat】イベント主催12名にインタビューしてみた！【夢見祭/夢見虚】" },
     ],
   },
 

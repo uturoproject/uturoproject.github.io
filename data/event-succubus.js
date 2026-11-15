@@ -38,7 +38,7 @@ window.EVENT_SITE = {
        info   … 開催情報の表。不要なら [] にすると表示されません
      --------------------------------------------------------------- */
   about: {
-    poster: "assets/images/succubus/poster.jpg",
+    poster: "assets/images/succubus/poster.webp",
     lead: "サキュバスと過ごす、なんだか癖の強い時間",
     text: [
       "魅惑的なサキュバスが蔓延るこのVRChatに残念なサキュバスが集結！",

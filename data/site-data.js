@@ -99,7 +99,7 @@ window.SITE = {
         {
           id: "succubus",
           title: "こんなのですが残念ながらサキュバスです",
-          image: "assets/images/succubus/poster.jpg",
+          image: "assets/images/succubus/poster.webp",
           url: "succubus/index.html",
         },
       ],
@@ -186,7 +186,7 @@ window.SITE = {
         id: "yumemi-uturo",
         name: "夢見虚",
         role: "代表",
-        image: "assets/images/avatar-placeholder.svg",
+        image: "assets/images/yumemi-uturo/icon.webp",
         // url を書くと、プロフィールページの代わりに個人のホームページへ進みます
         // （中身は data/person-yumemi-uturo.js で編集）
         url: "yumemi-uturo/index.html",

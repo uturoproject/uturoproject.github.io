@@ -306,6 +306,7 @@ p {
   max-width: 720px;
   margin: 0 auto;
   text-align: center;
+  white-space: pre-line; /* 文中の改行をそのまま表示 */
 }
 
 .section-lead {
@@ -570,6 +571,7 @@ a.member .member-role::after {
   max-width: 720px;
   margin: 0 auto;
   color: var(--muted);
+  white-space: pre-line; /* 文中の改行をそのまま表示 */
 }
 
 .page-body {

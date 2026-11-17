@@ -66,8 +66,12 @@ window.SITE = {
       titleJp: "定期イベント",
       page: "event.html",
       buttonLabel: "イベント一覧",
+      // 文中の \n は改行になります
       description:
-        "うつろプロジェクトが VRChat で開催している定期イベントを紹介します。",
+        "うつろプロジェクトではVRChat内で皆様に楽しんでいただける定期イベントを開催しております。\n" +
+        "オーソドックスなものからニッチなものまで。\n" +
+        "中にはVRChatならではのコンセプトを持つイベントもございます。\n" +
+        "ご興味ございましたらぜひ足を運んでみてください。",
       // ホームの EVENT 欄で、説明文とボタンの間を横に流れ続ける写真（クリックしても何も起きません）
       // 何枚でも OK。向き・サイズが違っても高さをそろえて表示します（横幅 800px 前後に縮小した画像がおすすめ）
       // photos を [] にすると、写真の帯は表示されません
@@ -204,6 +208,22 @@ window.SITE = {
       {
         id: "member-3",
         name: "七つの天狗 - 天乃",
+        role: "運営",
+        image: "assets/images/avatar-placeholder.svg",
+        bio: ["プロフィール文がここに入ります。"],
+        links: [],
+      },
+      {
+        id: "yuzuponzu",
+        name: "ゆずぽんず",
+        role: "運営",
+        image: "assets/images/avatar-placeholder.svg",
+        bio: ["プロフィール文がここに入ります。"],
+        links: [],
+      },
+      {
+        id: "niko",
+        name: "ニコ",
         role: "運営",
         image: "assets/images/avatar-placeholder.svg",
         bio: ["プロフィール文がここに入ります。"],

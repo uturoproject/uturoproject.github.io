@@ -19,7 +19,6 @@ window.SITE = {
     { label: "HOME", href: "index.html" },
     { label: "EVENT", href: "event.html" },
     { label: "PROJECT", href: "project.html" },
-    { label: "WORK", href: "work.html" },
   ],
 
   /* ---------------------------------------------------------------
@@ -30,7 +29,7 @@ window.SITE = {
   slides: [
     { image: "assets/images/slide-1.svg", alt: "スライド1", link: "event.html" },
     { image: "assets/images/slide-2.svg", alt: "スライド2", link: "project.html" },
-    { image: "assets/images/slide-3.svg", alt: "スライド3", link: "work.html" },
+    { image: "assets/images/slide-3.svg", alt: "スライド3", link: "" },
   ],
 
   /* ---------------------------------------------------------------
@@ -47,7 +46,7 @@ window.SITE = {
   },
 
   /* ---------------------------------------------------------------
-     EVENT / PROJECT / WORK
+     EVENT / PROJECT
        description : ホームと一覧ページに表示する説明文
        buttonLabel : ホームのボタンの文字
        items       : 一覧に並ぶもの（上に書いたものが先頭に表示されます）
@@ -111,20 +110,14 @@ window.SITE = {
       page: "project.html",
       buttonLabel: "プロジェクト一覧",
       description:
-        "うつろプロジェクトが進めている企画を紹介します。ここにプロジェクトについての説明文が入ります。",
+        "うつろプロジェクトでは、さまざまな団体様のご協力のもと、不定期で大規模企画を行っています。\n" +
+        "こちらでは、これまでに行った企画や、現在進行中の企画をまとめています。",
       // ホームの PROJECT 欄で、説明文とボタンの間を横に流れ続ける写真（EVENT と同じ仕組み）
       photoSpeed: 40, // 流れる速さ（1 秒あたりに進むピクセル数。大きいほど速い）
       photos: [
-        "assets/images/project-photos/photo-01.svg",
-        "assets/images/project-photos/photo-02.svg",
-        "assets/images/project-photos/photo-03.svg",
-        "assets/images/project-photos/photo-04.svg",
-        "assets/images/project-photos/photo-05.svg",
-        "assets/images/project-photos/photo-06.svg",
-        "assets/images/project-photos/photo-07.svg",
-        "assets/images/project-photos/photo-08.svg",
-        "assets/images/project-photos/photo-09.svg",
-        "assets/images/project-photos/photo-10.svg",
+        "assets/images/project-photos/photo-01.webp",
+        "assets/images/project-photos/photo-02.webp",
+        "assets/images/project-photos/photo-03.webp",
       ],
       items: [
         {
@@ -142,33 +135,6 @@ window.SITE = {
           image: "assets/images/thumb-placeholder.svg",
           summary: "プロジェクトの短い説明文がここに入ります。",
           body: ["プロジェクトの詳細な説明文がここに入ります。"],
-        },
-      ],
-    },
-
-    work: {
-      title: "WORK",
-      titleJp: "制作物",
-      page: "work.html",
-      buttonLabel: "制作物一覧",
-      description:
-        "ワールド・映像・楽曲など、うつろプロジェクトの制作物を紹介します。ここに制作物についての説明文が入ります。",
-      items: [
-        {
-          id: "sample-work-1",
-          title: "サンプル制作物 1",
-          date: "",
-          image: "assets/images/thumb-placeholder.svg",
-          summary: "制作物の短い説明文がここに入ります。",
-          body: ["制作物の詳細な説明文がここに入ります。"],
-        },
-        {
-          id: "sample-work-2",
-          title: "サンプル制作物 2",
-          date: "",
-          image: "assets/images/thumb-placeholder.svg",
-          summary: "制作物の短い説明文がここに入ります。",
-          body: ["制作物の詳細な説明文がここに入ります。"],
         },
       ],
     },
@@ -197,7 +163,7 @@ window.SITE = {
         id: "member-2",
         name: "やけちゃま",
         role: "副代表",
-        image: "assets/images/avatar-placeholder.svg",
+        image: "assets/images/members/yakechama.webp",
         bio: ["プロフィール文がここに入ります。"],
         links: [],
       },
@@ -205,7 +171,7 @@ window.SITE = {
         id: "member-3",
         name: "七つの天狗 - 天乃",
         role: "運営",
-        image: "assets/images/avatar-placeholder.svg",
+        image: "assets/images/members/amano.webp",
         bio: ["プロフィール文がここに入ります。"],
         links: [],
       },
@@ -226,12 +192,9 @@ window.SITE = {
         links: [],
       },
     ],
-    staff: [
-      { name: "スタッフ 1", role: "スタッフ", image: "assets/images/avatar-placeholder.svg" },
-      { name: "スタッフ 2", role: "スタッフ", image: "assets/images/avatar-placeholder.svg" },
-      { name: "スタッフ 3", role: "スタッフ", image: "assets/images/avatar-placeholder.svg" },
-      { name: "スタッフ 4", role: "スタッフ", image: "assets/images/avatar-placeholder.svg" },
-    ],
+    // スタッフ。今は表示していません（[] の間はスタッフの見出しごと出ません）
+    // 例: { name: "名前", role: "スタッフ", image: "assets/images/avatar-placeholder.svg" },
+    staff: [],
   },
 
   /* ---------------------------------------------------------------

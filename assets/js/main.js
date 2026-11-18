@@ -66,7 +66,7 @@
       (SITE.about.sub ? '<p class="catch-sub">' + esc(SITE.about.sub) + "</p>" : "") +
       UP.paragraphs(SITE.about.text);
 
-    // EVENT / PROJECT / WORK
+    // EVENT / PROJECT
     document.querySelectorAll("[data-category-section]").forEach(function (section) {
       var cat = SITE.categories[section.dataset.categorySection];
       if (!cat) return;

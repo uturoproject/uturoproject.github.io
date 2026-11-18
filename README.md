@@ -8,7 +8,7 @@ VRChat 団体「うつろプロジェクト」の公式サイトです。
 | 場所 | 内容 |
 | --- | --- |
 | `index.html` | ホーム |
-| `event.html` / `project.html` / `work.html` | 一覧ページ |
+| `event.html` / `project.html` | 一覧ページ |
 | `detail.html` | 一覧から開く詳細ページ（共通） |
 | `member.html` | 運営のプロフィールページ（共通） |
 | `data/site-data.js` | **サイトの文章・画像・一覧の中身（更新は基本ここだけ）** |

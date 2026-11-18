@@ -77,16 +77,12 @@ window.SITE = {
       // photos を [] にすると、写真の帯は表示されません
       photoSpeed: 40, // 流れる速さ（1 秒あたりに進むピクセル数。大きいほど速い）
       photos: [
-        "assets/images/event-photos/photo-01.svg",
-        "assets/images/event-photos/photo-02.svg",
-        "assets/images/event-photos/photo-03.svg",
-        "assets/images/event-photos/photo-04.svg",
-        "assets/images/event-photos/photo-05.svg",
-        "assets/images/event-photos/photo-06.svg",
-        "assets/images/event-photos/photo-07.svg",
-        "assets/images/event-photos/photo-08.svg",
-        "assets/images/event-photos/photo-09.svg",
-        "assets/images/event-photos/photo-10.svg",
+        "assets/images/event-photos/photo-01.webp",
+        "assets/images/event-photos/photo-02.webp",
+        "assets/images/event-photos/photo-03.webp",
+        "assets/images/event-photos/photo-04.webp",
+        "assets/images/event-photos/photo-05.webp",
+        "assets/images/event-photos/photo-06.webp",
       ],
       // layout: "poster" にすると、一覧が「縦長のポスター画像だけ」の並びになります
       // （タイトルや説明文は表示されません。title は画像の読み上げ用の名前として使います）

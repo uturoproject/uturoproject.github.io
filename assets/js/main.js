@@ -49,8 +49,36 @@
 
   /* ---------- ホーム ---------- */
 
+  /* ---------- 一番上のスライド ---------- */
+
+  // EVENT・PROJECT の流れる写真から、ページを開くたびにランダムで選ぶ。
+  // 押すと、その写真のカテゴリーの一覧ページへ進む。
+  function randomSlides() {
+    var pool = [];
+    Object.keys(SITE.categories).forEach(function (key) {
+      var cat = SITE.categories[key];
+      (cat.photos || []).forEach(function (src) {
+        pool.push({
+          // スライド用の大きい画像（同じフォルダの large/ に同じ名前で置く）
+          image: src.replace(/([^/]+)$/, "large/$1"),
+          alt: cat.title + " の写真",
+          link: cat.page,
+        });
+      });
+    });
+    // 並びをシャッフル
+    for (var i = pool.length - 1; i > 0; i--) {
+      var j = Math.floor(Math.random() * (i + 1));
+      var t = pool[i];
+      pool[i] = pool[j];
+      pool[j] = t;
+    }
+    return pool.slice(0, SITE.slideCount || 5);
+  }
+
   function initHome() {
-    UP.initSlider($("#slider"), SITE.slides, SITE.slideInterval);
+    var slides = SITE.slideMode === "photos" ? randomSlides() : SITE.slides;
+    UP.initSlider($("#slider"), slides, SITE.slideInterval);
 
     // ABOUT
     $("#about-body").innerHTML =
@@ -85,14 +113,14 @@
     // 運営・スタッフ
     var core = (SITE.members.core || [])
       .map(function (m) {
-        return (
-          // url があれば個人のホームページへ、無ければ共通のプロフィールページへ進む
-          '<a class="member" href="' + esc(m.url || "member.html?id=" + encodeURIComponent(m.id)) + '">' +
+        var inner =
           '<div class="member-photo"><img src="' + esc(m.image) + '" alt="' + esc(m.name) + '" loading="lazy"></div>' +
           '<p class="member-name">' + esc(m.name) + "</p>" +
-          '<p class="member-role">' + esc(m.role) + "</p>" +
-          "</a>"
-        );
+          '<p class="member-role">' + esc(m.role) + "</p>";
+        // url がある人だけ、押すと個人のホームページへ進む（無い人は表示のみ）
+        return m.url
+          ? '<a class="member" href="' + esc(m.url) + '">' + inner + "</a>"
+          : '<div class="member">' + inner + "</div>";
       })
       .join("");
 
@@ -132,7 +160,14 @@
         if (cat.layout === "poster") {
           return (
             '<a class="poster-card" href="' + esc(href) + '"' + UP.linkAttrs(href) + ">" +
-            '<img src="' + esc(item.image) + '" alt="' + esc(item.title) + '" loading="lazy"></a>'
+            '<img src="' + esc(item.image) + '" alt="' + esc(item.title) + '" loading="lazy">' +
+            // showTitle: true のカテゴリーは、ポスターの下に日付とタイトルを出す
+            (cat.showTitle
+              ? '<div class="poster-caption">' +
+                (item.date ? '<p class="card-date">' + esc(item.date) + "</p>" : "") +
+                '<h2 class="card-title">' + esc(item.title) + "</h2></div>"
+              : "") +
+            "</a>"
           );
         }
         return (
@@ -153,7 +188,8 @@
       "<p>" + esc(cat.description) + "</p>" +
       "</div></div>" +
       '<div class="page-body"><div class="container">' +
-      (cards ? '<div class="' + (cat.layout === "poster" ? "poster-grid" : "card-grid") + '">' + cards + "</div>" : '<p class="empty">ただいま準備中です。</p>') +
+      (cards ? '<div class="' + (cat.layout === "poster" ? "poster-grid" : "card-grid") + '"' +
+          (cat.posterRatio ? ' style="--poster-ratio: ' + esc(cat.posterRatio) + '"' : "") + ">" + cards + "</div>" : '<p class="empty">ただいま準備中です。</p>') +
       "</div></div>";
   }
 

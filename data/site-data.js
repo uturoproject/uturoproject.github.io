@@ -26,6 +26,11 @@ window.SITE = {
      link を書くと、クリックでそのページに移動します（空なら移動なし）
      --------------------------------------------------------------- */
   slideInterval: 5000, // 切り替わる間隔（ミリ秒）
+  // slideMode: "photos" … EVENT・PROJECT の流れる写真から、開くたびにランダムで slideCount 枚を表示
+  //                       （押すとその写真のカテゴリーの一覧へ。大きい画像は各フォルダの large/ に同じ名前で置く）
+  // slideMode: "fixed"  … 下の slides に書いたものをそのまま表示
+  slideMode: "photos",
+  slideCount: 5,
   slides: [
     { image: "assets/images/slide-1.svg", alt: "スライド1", link: "event.html" },
     { image: "assets/images/slide-2.svg", alt: "スライド2", link: "project.html" },
@@ -119,22 +124,20 @@ window.SITE = {
         "assets/images/project-photos/photo-02.webp",
         "assets/images/project-photos/photo-03.webp",
       ],
+      // ポスターを並べ、下にタイトルを出す一覧（ポスターを押すと詳細ページへ）
+      layout: "poster",
+      showTitle: true,
+      posterRatio: "3 / 4", // ポスターの縦横比（横 / 縦）
       items: [
         {
-          id: "sample-project-1",
-          title: "サンプルプロジェクト 1",
-          date: "",
-          image: "assets/images/thumb-placeholder.svg",
-          summary: "プロジェクトの短い説明文がここに入ります。",
-          body: ["プロジェクトの詳細な説明文がここに入ります。"],
-        },
-        {
-          id: "sample-project-2",
-          title: "サンプルプロジェクト 2",
-          date: "",
-          image: "assets/images/thumb-placeholder.svg",
-          summary: "プロジェクトの短い説明文がここに入ります。",
-          body: ["プロジェクトの詳細な説明文がここに入ります。"],
+          id: "yumemisai",
+          title: "夢見祭 ~focus on me !~",
+          date: "2026.09.05 - 09.06",
+          image: "assets/images/projects/yumemisai/poster.webp",
+          body: [
+            "今年最後の夏に、最高の出会いを。",
+            "さまざまな団体様にご協力いただき、9月5日（土）・6日（日）の2日間にわたって開催した合同イベントです。",
+          ],
         },
       ],
     },

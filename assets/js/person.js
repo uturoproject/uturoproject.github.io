@@ -183,6 +183,8 @@
 
   function initAffiliation() {
     document.title = "所属 | " + fullName;
+    // 写真の枠の縦横比（data の photoRatio。無ければ 3:4）
+    if (P.affiliations.photoRatio) document.documentElement.style.setProperty("--photo-ratio", P.affiliations.photoRatio);
     var items = P.affiliations.items || [];
 
     var cards = items

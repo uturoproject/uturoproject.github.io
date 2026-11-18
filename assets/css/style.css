@@ -1639,3 +1639,8 @@ button:focus-visible {
     gap: 8px;
   }
 }
+
+/* 個人サイトのプロフィール文：文中の改行をそのまま表示 */
+.person-hero p {
+  white-space: pre-line;
+}

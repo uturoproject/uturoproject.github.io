@@ -33,8 +33,8 @@ window.PERSON_SITE = {
     image: "assets/images/member-placeholder.svg",
     tags: ["VTuber", "うつろプロジェクト 代表"],
     text: [
-      "ここに夢見虚の説明文が入ります。どんな活動をしている VTuber なのかを紹介する想定です。（仮の文章）",
-      "活動内容や配信の傾向、ひとことメッセージなどを 2〜3 段落ほどで記載します。（仮の文章）",
+      "企画することが大好きな現役大学生Vtuber。\n目的のためには努力を惜しまないが、たびたびタスク過多で自分を苦しめている。",
+      "彼の最近の口癖は「力が欲しい」らしい。",
     ],
   },
 
@@ -102,9 +102,10 @@ window.PERSON_SITE = {
   affiliations: {
     homeDescription: "現在キャストとして所属している VRChat のイベントを紹介します。", // ホームの所属欄に出す説明文
     buttonLabel: "所属一覧", // ホームの所属欄のボタンの文字
+    photoRatio: "1414 / 2000", // 所属ページの写真の枠の縦横比（横 / 縦）。キャスト紹介写真の形に合わせます
     description: "現在キャストとして所属している VRChat のイベントです。画像を押すと大きく表示されます。", // 所属ページの説明文
     items: [
-      { name: "所属イベント 1", image: "assets/images/member-placeholder.svg", xUrl: "" },
+      { name: "イチゴメイド喫茶 Strawberry♡Spell", image: "assets/images/yumemi-uturo/cast/cast-01.webp", xUrl: "https://x.com/straw_spell315" },
       { name: "所属イベント 2", image: "assets/images/member-placeholder.svg", xUrl: "" },
       { name: "所属イベント 3", image: "assets/images/member-placeholder.svg", xUrl: "" },
     ],

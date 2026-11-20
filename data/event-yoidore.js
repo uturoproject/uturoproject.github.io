@@ -23,13 +23,17 @@ window.EVENT_SITE = {
   ],
 
   /* ---------------------------------------------------------------
-     ホーム最上部のスライド（横長画像。推奨サイズ 1600×600 前後）
+     ホーム最上部のスライド（16:9 の横長画像。1600×900 程度）
+       link を書くと、押したときにそのページへ進みます（"" なら移動なし）
      --------------------------------------------------------------- */
   slideInterval: 5000, // 切り替わる間隔（ミリ秒）
+  slideRatio: "16 / 9", // スライドの縦横比（横 / 縦）。書かなければ 16 / 6
   slides: [
-    { image: "assets/images/yoidore/slide-1.svg", alt: "スライド1", link: "" },
-    { image: "assets/images/yoidore/slide-2.svg", alt: "スライド2", link: "join.html" },
-    { image: "assets/images/yoidore/slide-3.svg", alt: "スライド3", link: "members.html" },
+    { image: "assets/images/yoidore/slides/slide-01.webp", alt: "よいどれの店内と路地", link: "" },
+    { image: "assets/images/yoidore/slides/slide-02.webp", alt: "よいどれのカウンター", link: "" },
+    { image: "assets/images/yoidore/slides/slide-03.webp", alt: "よいどれの店先", link: "" },
+    { image: "assets/images/yoidore/slides/slide-04.webp", alt: "よいどれの厨房", link: "" },
+    { image: "assets/images/yoidore/slides/slide-05.webp", alt: "よいどれの料理棚", link: "" },
   ],
 
   /* ---------------------------------------------------------------
@@ -58,7 +62,7 @@ window.EVENT_SITE = {
        notes       … 注意事項（不要なら [] ）
      --------------------------------------------------------------- */
   join: {
-    description: "ここに参加方法の簡単な説明文が入ります。詳しい手順は参加方法のページをご覧ください。（仮の文章）",
+    description: "", // 参加方法の説明文（ホームの参加方法欄と、参加方法ページの冒頭に出ます。"" なら出しません）
     buttonLabel: "参加方法を見る",
     steps: [
       // 説明文の中の https:// から始まる URL は、押せるリンクになります
@@ -67,8 +71,8 @@ window.EVENT_SITE = {
       { title: "グループインスタンスに参加", text: "時間になったら、グループインスタンスに join してください。" },
     ],
     notes: [
-      "ここに注意事項が入ります。（仮）",
-      "ここに注意事項が入ります。（仮）",
+      "アバター容量は40MB以下でお願いします。",
+      "日本語でVCを用いてコミュニケーションを行える方のみご参加可能です。",
     ],
   },
 

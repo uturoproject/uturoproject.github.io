@@ -155,7 +155,7 @@
       // 参加方法
       '<section class="section tint" id="join"><div class="container">' +
       UP.sectionHead("HOW TO JOIN", "参加方法") +
-      '<div class="section-text"><p>' + esc(EV.join.description) + "</p></div>" +
+      (EV.join.description ? '<div class="section-text"><p>' + esc(EV.join.description) + "</p></div>" : "") +
       '<div class="section-action"><a class="btn" href="join.html">' + esc(EV.join.buttonLabel || "参加方法を見る") + "</a></div>" +
       "</div></section>" +
 
@@ -207,7 +207,7 @@
     $("#main").innerHTML =
       '<div class="page-hero"><div class="container">' +
       UP.sectionHead("HOW TO JOIN", "参加方法", "h1") +
-      "<p>" + esc(EV.join.description) + "</p>" +
+      (EV.join.description ? "<p>" + esc(EV.join.description) + "</p>" : "") +
       "</div></div>" +
       '<div class="page-body"><div class="container narrow">' +
       (steps ? '<ol class="steps">' + steps + "</ol>" : '<p class="empty">ただいま準備中です。</p>') +
@@ -310,6 +310,8 @@
   /* ---------- 起動 ---------- */
 
   UP.applyTheme(EV.theme);
+  // スライドの縦横比（data の slideRatio。無ければ 16:6）
+  if (EV.slideRatio) document.documentElement.style.setProperty("--slide-ratio", EV.slideRatio);
   // メンバー写真の枠の縦横比（data の photoRatio。無ければ 3:4）
   if (EV.photoRatio) document.documentElement.style.setProperty("--photo-ratio", EV.photoRatio);
 

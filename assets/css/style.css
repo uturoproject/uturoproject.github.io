@@ -1655,3 +1655,11 @@ button:focus-visible {
 .poster-caption .card-title {
   margin: 0;
 }
+
+/* 文中のリンク（参加方法の手順など） */
+.text-link {
+  color: var(--blue);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  word-break: break-all;
+}

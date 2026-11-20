@@ -178,6 +178,13 @@
 
   /* ---------- 参加方法ページ ---------- */
 
+  // 文中の https:// から始まる URL を、押せるリンクにする（新しいタブで開く）
+  function linkify(text) {
+    return esc(text).replace(/https?:\/\/[A-Za-z0-9.\/:_\-?=&%#~+]+/g, function (url) {
+      return '<a class="text-link" href="' + url + '" target="_blank" rel="noopener noreferrer">' + url + "</a>";
+    });
+  }
+
   function initJoin() {
     document.title = "参加方法 | " + EV.name;
 
@@ -185,7 +192,8 @@
       .map(function (s) {
         return (
           '<li class="step"><h2 class="step-title">' + esc(s.title) + "</h2>" +
-          UP.paragraphs([].concat(s.text || [])) + "</li>"
+          [].concat(s.text || []).map(function (t) { return "<p>" + linkify(t) + "</p>"; }).join("") +
+          "</li>"
         );
       })
       .join("");

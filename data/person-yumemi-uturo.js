@@ -30,7 +30,7 @@ window.PERSON_SITE = {
        text  … 説明文（1 要素 = 1 段落）
      --------------------------------------------------------------- */
   profile: {
-    image: "assets/images/member-placeholder.svg",
+    image: "assets/images/yumemi-uturo/profile.webp",
     tags: ["VTuber", "うつろプロジェクト 代表"],
     text: [
       "企画することが大好きな現役大学生Vtuber。\n目的のためには努力を惜しまないが、たびたびタスク過多で自分を苦しめている。",
@@ -96,7 +96,7 @@ window.PERSON_SITE = {
   /* ---------------------------------------------------------------
      所属（今キャストとして所属している VRChat のイベント）
        name  … イベント名
-       image … キャスト紹介写真（縦長 3:4 推奨）
+       image … キャスト紹介写真（縦長）。空（""）の間は「近日更新予定」と表示されます
        xUrl  … そのイベントの公式 X の URL（画像を押したときのボタンの行き先）。空（""）の間はボタンが出ません
      --------------------------------------------------------------- */
   affiliations: {
@@ -106,8 +106,9 @@ window.PERSON_SITE = {
     description: "現在キャストとして所属している VRChat のイベントです。画像を押すと大きく表示されます。", // 所属ページの説明文
     items: [
       { name: "イチゴメイド喫茶 Strawberry♡Spell", image: "assets/images/yumemi-uturo/cast/cast-01.webp", xUrl: "https://x.com/straw_spell315" },
-      { name: "所属イベント 2", image: "assets/images/member-placeholder.svg", xUrl: "" },
-      { name: "所属イベント 3", image: "assets/images/member-placeholder.svg", xUrl: "" },
+      { name: "クマリメイド喫茶 べあー♡まじっく", image: "", xUrl: "https://x.com/Bear_magicVRC" },
+      { name: "フィユエ喫茶 ふぃゆえ～る", image: "", xUrl: "https://x.com/fyuear_r" },
+      { name: "バメッサ喫茶〜Andante〜", image: "", xUrl: "https://x.com/BAMECafeAndante" },
     ],
   },
 

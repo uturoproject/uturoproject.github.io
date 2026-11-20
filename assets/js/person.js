@@ -191,7 +191,10 @@
       .map(function (a, i) {
         return (
           '<button class="roster-card" type="button" data-index="' + i + '">' +
-          '<span class="roster-photo"><img src="' + esc(UP.asset(a.image)) + '" alt="" loading="lazy"></span>' +
+          // 画像が無いものは「近日更新予定」と表示する
+          (a.image
+            ? '<span class="roster-photo"><img src="' + esc(UP.asset(a.image)) + '" alt="" loading="lazy"></span>'
+            : '<span class="roster-photo roster-soon"><span>近日更新予定</span></span>') +
           '<span class="roster-name">' + esc(a.name) + "</span>" +
           "</button>"
         );
@@ -210,6 +213,7 @@
       '<dialog class="member-modal" id="member-modal" aria-labelledby="modal-name">' +
       '<button class="modal-close" type="button" aria-label="閉じる">×</button>' +
       '<img class="modal-image" id="modal-image" src="" alt="">' +
+      '<div class="modal-soon" id="modal-soon">近日更新予定</div>' +
       '<div class="modal-caption">' +
       '<p class="modal-name" id="modal-name"></p>' +
       '<div class="modal-action"><a class="btn" id="modal-link" href="#">公式 X を見る</a></div>' +
@@ -221,8 +225,13 @@
     document.querySelectorAll(".roster-card").forEach(function (card) {
       card.addEventListener("click", function () {
         var a = items[Number(card.dataset.index)];
-        $("#modal-image").src = UP.asset(a.image);
-        $("#modal-image").alt = a.name + " キャスト紹介";
+        // 画像が無いものは、画像の代わりに「近日更新予定」を出す
+        $("#modal-image").hidden = !a.image;
+        $("#modal-soon").hidden = !!a.image;
+        if (a.image) {
+          $("#modal-image").src = UP.asset(a.image);
+          $("#modal-image").alt = a.name + " キャスト紹介";
+        }
         $("#modal-name").textContent = a.name;
         // 公式 X の URL が無いものはボタンを出さない
         link.parentElement.hidden = !a.xUrl;

@@ -1663,3 +1663,32 @@ button:focus-visible {
   text-underline-offset: 3px;
   word-break: break-all;
 }
+
+/* 所属ページで、画像がまだ無いものに出す「近日更新予定」 */
+.roster-soon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px dashed var(--blue-line);
+  box-shadow: none;
+  color: var(--blue);
+  font-weight: 700;
+  letter-spacing: 0.12em;
+}
+
+.modal-soon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 240px;
+  border-radius: var(--radius) var(--radius) 0 0;
+  background: var(--blue-pale);
+  color: var(--blue);
+  font-weight: 700;
+  letter-spacing: 0.12em;
+}
+
+.modal-soon[hidden],
+.modal-image[hidden] {
+  display: none;
+}

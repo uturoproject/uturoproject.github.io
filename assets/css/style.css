@@ -1152,7 +1152,9 @@ button:focus-visible {
 /* ---------- 画像を押したときの拡大表示 ---------- */
 
 .member-modal {
-  width: min(92vw, 440px);
+  /* 幅は写真に合わせて決まる（左右に余白の帯が出ないように）。最大は 440px */
+  width: fit-content;
+  max-width: min(92vw, 440px);
   max-height: 92vh;
   padding: 0;
   border: 0;
@@ -1178,14 +1180,19 @@ button:focus-visible {
 
 .modal-image {
   display: block;
-  width: 100%;
-  max-height: 58vh;
-  object-fit: contain; /* 写真を切らずに全体を見せる（左右の空きは暗い色） */
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  max-height: 58vh; /* 写真を切らずに全体を見せる。幅は高さに合わせて縮む */
   border-radius: var(--radius) var(--radius) 0 0;
-  background: #140e16;
+  background: var(--blue-pale);
 }
 
 .modal-caption {
+  /* 文章の長さで枠が広がらないよう、幅は写真に合わせる */
+  width: 0;
+  min-width: 100%;
+  box-sizing: border-box;
   max-height: 32vh; /* コメントが長いときは、この中でスクロール */
   overflow-y: auto;
   padding: 16px 24px 22px;
@@ -1677,6 +1684,7 @@ button:focus-visible {
 }
 
 .modal-soon {
+  width: min(80vw, 320px);
   display: flex;
   align-items: center;
   justify-content: center;

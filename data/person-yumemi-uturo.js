@@ -45,7 +45,7 @@ window.PERSON_SITE = {
        channelUrl … チャンネルの URL（書くと「チャンネルを見る」ボタンが出ます）
      --------------------------------------------------------------- */
   youtube: {
-    description: "まず見てほしいおすすめの動画です。（仮の文章）",
+    description: "まず見てほしいおすすめの動画です。",
     channelUrl: "https://www.youtube.com/@yumemiuturo",
     videos: [
       { id: "WNhWUH0Cv0w", title: "【Vtuber】マルチクリエイターを夢見る現役大学生Vtuberをお探しですか？【夢見虚】" },
